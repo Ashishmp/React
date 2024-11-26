@@ -9,10 +9,16 @@ function App() {
 const addValue = () => {
   counter = counter + 1
   setCounter(counter)
+  if(counter > 20){
+    setCounter(20)
+  }
 }
 const removeValue = () => {
   counter = counter - 1
   setCounter(counter)
+  if(counter<=0){
+    setCounter(0)
+  }
 }
   return (
     <>
