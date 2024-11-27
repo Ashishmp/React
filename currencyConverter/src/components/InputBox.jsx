@@ -6,7 +6,7 @@ function InputBox({
   onAmountChange,
   onCurrencyChange,
   currencyOption = [],
-  selectCurrency = "usd",
+  selectCurrency = "USD",
   amountDisable = false,
   currencyDisable = false,
   className = "",
@@ -34,24 +34,20 @@ function InputBox({
         <select
           className="rounded-lg px-1 py-1 bg-gray-100 cursor-pointer outline-none"
           value={selectCurrency}
-          onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)} // No need to use Number() here
+          onChange={(e) => onCurrencyChange && onCurrencyChange(e.target.value)}
           disabled={currencyDisable}
         >
-          {/* Show the currencies dynamically */}
-          {currencyOption.length > 0 ? (
-            currencyOption.map((currency) => (
-              <option key={currency} value={currency}>
-                {currency.toUpperCase()} {/* Show currency symbol or code */}
-              </option>
-            ))
-          ) : (
-            <option disabled>No currencies available</option>
-          )}
-        </select>
-      </div>
-    </div>
-  );
+          
+          {currencyOption.map((currency) => (
+                            <option key={currency} value={currency}>
+                            {currency}
+                            </option>
+                        ))}
+                
+                </select>
+            </div>
+        </div>
+    );
 }
 
-// Make sure this is a default export
 export default InputBox;
