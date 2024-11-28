@@ -1,13 +1,11 @@
-import {createContext, useContext} from 'React'
-
+import {createContext, useContext} from "react"
 
 export const TodoContext = createContext({
-
-    todos:[
+    todos: [
         {
             id: 1,
-            todo: "Complete pending work",
-            completed: false
+            todo: " Todo msg",
+            completed: false,
         }
     ],
     addTodo: (todo) => {},
@@ -15,10 +13,10 @@ export const TodoContext = createContext({
     deleteTodo: (id) => {},
     toggleComplete: (id) => {}
 })
+
+
 export const useTodo = () => {
-    return useContext (TodoContext)
+    return useContext(TodoContext)
 }
 
-
-export const Todoprovider = TodoContext.Provider
-
+export const TodoProvider = TodoContext.Provider
