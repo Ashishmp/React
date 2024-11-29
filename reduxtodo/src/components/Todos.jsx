@@ -23,6 +23,12 @@ function Todos() {
         if (text) {
             // Dispatch the action to update the todo with the edited input
             dispatch(updateTodo({ id, text }));
+            // Reset the input for the specific todo item
+            setInput(prevState => {
+                const newState = { ...prevState };
+                delete newState[id]; // Remove the edited todo from the state after saving
+                return newState;
+            });
         }
     };
 
@@ -48,7 +54,20 @@ function Todos() {
                                     onClick={() => handleSave(todo.id)} // Save the edited todo
                                     className="text-white bg-green-500 border-0 py-1 px-4 focus:outline-none hover:bg-green-600 rounded text-md ml-2"
                                 >
-                                    Edit
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth={1.5}
+                                    stroke="currentColor"
+                                    className="w-6 h-6"
+                                  >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        d="M5 13l4 4L19 7"
+                                    />
+                                  </svg>
                                 </button>
                             </>
                         ) : (
@@ -58,7 +77,7 @@ function Todos() {
                                     onClick={() => handleInputChange(todo.id, todo.text)} // Enable editing for this todo
                                     className="text-white bg-blue-500 border-0 py-1 px-4 focus:outline-none hover:bg-blue-600 rounded text-md ml-2"
                                 >
-                                    
+                                    Edit
                                 </button>
                             </>
                         )}
