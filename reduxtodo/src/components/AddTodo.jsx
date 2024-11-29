@@ -2,16 +2,23 @@ import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import {addTodo} from '../features/todo/todoSlice' 
 
-function AddTodo() {
+function AddTodo() {[]
 
     const [input, setInput] = useState('')
     const dispatch = useDispatch()
 
     const addTodoHandler = (e) => {
-        e.preventDefault()
-        dispatch(addTodo(input))
-        setInput('')
-    }
+      e.preventDefault();
+      
+      
+      if (input.trim() !== "") {
+        dispatch(addTodo(input)); 
+        setInput('');
+      } else {
+        console.log("Input is empty, todo not added.");
+      }
+    };
+    
 
   return (
     <form onSubmit={addTodoHandler} className="space-x-3 mt-12">
