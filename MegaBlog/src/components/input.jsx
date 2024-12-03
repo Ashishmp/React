@@ -22,6 +22,8 @@ const Input = React.forwardRef(
             className={`px-3 py-2 rounded-lg bg-whi${className}`} 
                 />
 
+
+
         </div>)
     }
 )
