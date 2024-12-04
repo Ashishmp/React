@@ -19,7 +19,5 @@ useEffect(() => {
 }, [authStatus,navigate,authentication])
 
 
-    return(
-        <div>Auth</div>
-    )
+    return loader? <h1>Loading...</h1> : <> {children} </>
 }
